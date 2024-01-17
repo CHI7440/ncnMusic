@@ -1,8 +1,0 @@
-[setup]
-packages = ["python39"]  
-
-[build]
-command = "pip install -r requirements.txt"  
-
-[start]
-command = "gunicorn ncnMusic.wsgi"
