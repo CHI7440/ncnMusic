@@ -43,9 +43,8 @@ def get_emotion(request):
       else:
         form = ImageForm()
         return render(request,'second.html',{'form':form})  
-      
-    else:
-      form = ImageForm()
-    return render(request,'index.html',{'form':form})
+     
+  form = ImageForm()
+  return render(request,'index.html',{'form':form})
     
   
