@@ -43,6 +43,7 @@ def get_emotion(request):
       
       else:
         form = ImageForm()
+        script = f"alert('No Face Detected')"
         return render(request,'second.html',{'form':form})  
      
   form = ImageForm()
