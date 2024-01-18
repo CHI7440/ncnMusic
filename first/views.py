@@ -25,17 +25,17 @@ def get_emotion(request):
       emotion = detect_emotion(imgPath,form.frame,form.gray)
       if emotion == 'Happy':
         song = play_from_playlist(happy_songs_uri)
-        script = f"window.open('{song}','_blank')"
+        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"
         return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
               
       elif emotion == 'Sad':
         song = play_from_playlist(sad_songs_uri)
-        script = f"window.open('{song}','_blank')"        
+        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"        
         return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
               
       elif emotion == 'Neutral':
         song = play_from_playlist(neutral_songs_uri)
-        script = f"window.open('{song}','_blank')"
+        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"
         return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
       
       else:
