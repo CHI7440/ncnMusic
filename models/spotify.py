@@ -33,5 +33,6 @@ def play_from_playlist(playlist_uri):
   random_track = random.choice(playlist_tracks['items'])
   print(random_track)
   song = random_track['track']['external_urls']['spotify']
-  webbrowser.open(song)
+  # webbrowser.open(song)
   print('Song is opened in the browser')
+  return song

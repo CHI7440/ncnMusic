@@ -26,16 +26,19 @@ def get_emotion(request):
       imgPath = imgUrl.lstrip('/')
       emotion = detect_emotion(imgPath)
       if emotion == 'Happy':
-        play_from_playlist(happy_songs_uri)
-        return render(request,'second.html',{'form':form,'emotion':emotion})
+        song = play_from_playlist(happy_songs_uri)
+        script = f"window.open('{song}','_blank')"
+        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
               
-      if emotion == 'Sad':
-        play_from_playlist(sad_songs_uri)
-        return render(request,'second.html',{'form':form,'emotion':emotion})
+      elif emotion == 'Sad':
+        song = play_from_playlist(sad_songs_uri)
+        script = f"window.open('{song}','_blank')"        
+        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
               
-      if emotion == 'Neutral':
-        play_from_playlist(neutral_songs_uri) 
-        return render(request,'second.html',{'form':form,'emotion':emotion})
+      elif emotion == 'Neutral':
+        song = play_from_playlist(neutral_songs_uri)
+        script = f"window.open('{song}','_blank')"
+        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
       
       else:
         form = ImageForm()
@@ -43,6 +46,6 @@ def get_emotion(request):
       
     else:
       form = ImageForm()
-      return render(request,'index.html',{'form':form})
+    return render(request,'index.html',{'form':form})
     
   
