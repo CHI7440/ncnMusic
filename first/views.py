@@ -1,10 +1,7 @@
 from django.shortcuts import render
 from .forms import ImageForm
-from django.conf import settings
 from models.test import detect_emotion
 from models.spotify import play_from_playlist
-import cv2,os,numpy
-import urllib.parse
 
 happy_songs_uri = 'spotify:playlist:0TB1scqYXu8vaFwxiOaT1j'
 sad_songs_uri = 'spotify:playlist:6eq5Zviu57AxTT02x0F3pE'
@@ -25,7 +22,7 @@ def get_emotion(request):
       imgUrl = uploaded_img.image.url
       print(imgUrl)
       imgPath = imgUrl.lstrip('/')
-      emotion = detect_emotion(imgPath)
+      emotion = detect_emotion(imgPath,form.frame,form.gray)
       if emotion == 'Happy':
         song = play_from_playlist(happy_songs_uri)
         script = f"window.open('{song}','_blank')"
@@ -43,8 +40,8 @@ def get_emotion(request):
       
       else:
         form = ImageForm()
-        script = f"alert('No Face Detected')"
-        return render(request,'second.html',{'form':form})  
+        script = "alert('No Face Detected');"
+        return render(request,'second.html',{'form':form,'script':script}) 
      
   form = ImageForm()
   return render(request,'index.html',{'form':form})

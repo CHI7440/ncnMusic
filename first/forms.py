@@ -14,13 +14,12 @@ class ProcessedImageField(forms.FileField):
 
     content = raw_content.read()
     img_array = numpy.frombuffer(content, numpy.uint8)
-    frame = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    resized = cv2.resize(gray, (48, 48))
-    processed_content = cv2.imencode('.jpg', resized)[1].tobytes()
+    self.frame = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    self.gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+    processed_content = cv2.imencode('.jpg', self.gray)[1].tobytes()
 
     # Create an InMemoryUploadedFile instance with processed content
-    processed_file = InMemoryUploadedFile(
+    self.processed_file = InMemoryUploadedFile(
         file=BytesIO(processed_content),
         field_name=None,
         name='processed_img.jpg',
@@ -29,11 +28,10 @@ class ProcessedImageField(forms.FileField):
         charset=None
     )
 
-    return processed_file
+    return self.processed_file
 
 class ImageForm(forms.ModelForm):
     image = ProcessedImageField()
-
     class Meta:
         model = Face_Image
         fields = ('image',)
@@ -42,9 +40,9 @@ class ImageForm(forms.ModelForm):
         }
 
     def save(self, commit=True):
-      processed_content = self.cleaned_data.get('image')
-
-      
+      processed_content = self.fields['image'].processed_file
+      self.frame  = self.fields['image'].frame
+      self.gray = self.fields['image'].gray
       face_image = Face_Image(image=processed_content)
       if commit:
         face_image.save()
