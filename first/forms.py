@@ -36,7 +36,7 @@ class ImageForm(forms.ModelForm):
         model = Face_Image
         fields = ('image',)
         widgets = {
-            'image': forms.FileInput(attrs={'accept': 'image/*'}),
+            'image': forms.FileInput(attrs={'accept': '.jpg,.jpeg,.png,.webp'}),
         }
 
     def save(self, commit=True):
