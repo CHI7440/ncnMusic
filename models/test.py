@@ -1,7 +1,6 @@
-import cv2
+import cv2,os
 from matplotlib import pyplot as plt
 import numpy as np
-import time
 from models import spotify
 from keras.models import load_model
 
@@ -38,7 +37,7 @@ def detect_emotion(img):
 
             # Display image using matplotlib
             plt.imshow(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            plt.show()
+            # plt.show()
 
             if text == 'Happy':
                 spotify.play_from_playlist(happy_songs_uri)
