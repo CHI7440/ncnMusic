@@ -17,6 +17,7 @@ def home_screen(request):
   return render(request,'index.html',{'form':form})
 
 def get_emotion(request):
+  emotion=""
   if request.method == 'POST':
     form = ImageForm(request.POST,request.FILES)
     if form.is_valid():
