@@ -34,6 +34,8 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = Face_Image
         fields = ('image',)
+       
+
         
     def save(self,commit=True):
       processed_content = self.fields['image'].processed_file
