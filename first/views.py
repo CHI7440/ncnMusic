@@ -25,23 +25,19 @@ def get_emotion(request):
       emotion = detect_emotion(imgPath,form.frame,form.gray)
       if emotion == 'Happy':
         song = play_from_playlist(happy_songs_uri)
-        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"
-        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
+        return render(request,'second.html',{'form':form,'emotion':emotion,'song':song,'playlist':happy_songs_uri})
               
       elif emotion == 'Sad':
         song = play_from_playlist(sad_songs_uri)
-        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"        
-        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
+        return render(request,'second.html',{'form':form,'emotion':emotion,'song':song,'playlist':sad_songs_uri})
               
       elif emotion == 'Neutral':
         song = play_from_playlist(neutral_songs_uri)
-        script = f"if (confirm('Do you want to open the song?')) {{ window.open('{song}','_blank'); }}"
-        return render(request,'second.html',{'form':form,'emotion':emotion,'script':script})
+        return render(request,'second.html',{'form':form,'emotion':emotion,'song':song,'playlist':neutral_songs_uri})
       
       else:
         form = ImageForm()
-        script = "alert('No Face Detected');"
-        return render(request,'second.html',{'form':form,'script':script}) 
+        return render(request,'second.html',{'form':form}) 
      
   form = ImageForm()
   return render(request,'index.html',{'form':form})

@@ -9,9 +9,6 @@
   <link rel="shortcut icon" href="{% static 'ncnMusic/images/favicon.ico' %}" type="image/x-icon">
   <link rel="stylesheet" href="{% static 'ncnMusic/css/style.css' %} ">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <script>
-    {{script|safe}}
-  </script>
 </head>
 <body>
   <header id="header">
@@ -21,14 +18,22 @@
     <div class="result">
       {% if emotion == "Happy" %}
       <h1>Joyful Beats for a Happy Heart: Let Music Spark Your Smiles.</h1>
+      <button type="button" id="playlist-btn" style="cursor: pointer;" onclick="recommend_playlist('{{playlist|safe}}')">Recommend Playlist</button>
+      <button type="button" id="song-btn" style="cursor: pointer;" onclick="open_song('{{song|safe}}')">Open Song</button>
       {% elif emotion == "Neutral" %}
       <h1>Relax and unwind with music that matches your peaceful state of mind.</h1>
+      <button type="button" id="playlist-btn" style="cursor: pointer;" onclick="recommend_playlist('{{playlist|safe}}')">Recommend Playlist</button>
+      <button type="button" id="song-btn" style="cursor: pointer;" onclick="open_song('{{song|safe}}')">Open Song</button>
       {% elif emotion == "Sad" %}
       <h1>Embrace the Blues: Let Music Speak to Your Heart in Sad Moments.</h1>
+      <button type="button" id="playlist-btn" style="cursor: pointer;" onclick="recommend_playlist('{{playlist|safe}}')">Recommend Playlist</button>
+      <button type="button" id="song-btn" style="cursor: pointer;" onclick="open_song('{{song|safe}}')">Open Song</button>
       {% else %}
       <h1>No Face Detected</h1>
+      <button type="button" id="playlist-btn" style="cursor: not-allowed;" disabled>Recommend Playlist</button>
+      <button type="button" id="song-btn" style="cursor: not-allowed;" disabled>Open Song</button>
       {% endif %}
-      <a href="/index.html" id="home-btn"><i style="margin-top: 20px; font-size:large" class="fa fa-home" aria-hidden="true"></i></a>
+      <a href="/index.html" id="home-btn"><i style="margin-top: 20px; font-size: 30px;" class="fa fa-home" aria-hidden="true"></i></a>
     </div>
   </div>
   <script src="{% static 'ncnMusic/js/script.js' %}"></script>

@@ -4,6 +4,8 @@ const uploadBtn = document.querySelector("#upload-btn");
 const idImageBtn = document.getElementById('id_image');
 const customBtn = document.querySelector("#custom-btn");
 const cancelBtn = document.querySelector("#cancel-btn i");
+const playlistBtn = document.getElementById("#playlist-btn");
+const songBtn = document.getElementById("#song=btn");
 const img = document.querySelector("img");
 let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 customBtn.addEventListener("click",function(){
@@ -34,3 +36,24 @@ idImageBtn.addEventListener("change", function(){
     fileName.textContent = valueStore;
   }
 });
+
+// script for second.html
+
+function recommend_playlist(playlist_uri)
+{
+  if(playlist_uri!='')
+  {
+    console.log(playlist_uri);
+    window.open(playlist_uri);
+  }
+}
+
+
+function open_song(song_url)
+{
+  if(song_url!='')
+  {
+    console.log(song_url);
+    window.open(song_url);
+  }
+}

@@ -49,7 +49,7 @@ html,body{
 .wrapper img{
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .wrapper .icon{
   font-size: 100px;
@@ -106,10 +106,6 @@ html,body{
   background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
 }
 
-.container #custom-btn:hover{
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
-}
-
 .container #upload-btn{
   margin-top: 30px;
   display: block;
@@ -124,14 +120,6 @@ html,body{
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: not-allowed;
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
-}
-
-.container #upload-btn:hover{
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
-}
-
-.container #custom-btn:active{
   background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
 }
 
@@ -151,4 +139,51 @@ html,body{
 #footer{
   margin-top: 15vh;
   position: relative;
+}
+
+
+/* style for second.html */
+
+.container .result #playlist-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+
+.container .result #playlist-btn:disabled{
+  background: #cccccc;
+  color: #eee;
+}
+
+.container .result #song-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+
+.container .result #song-btn:disabled{
+  background: #cccccc;
+  color: #eee;
 }
