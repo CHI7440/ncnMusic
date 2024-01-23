@@ -23,7 +23,6 @@ def detect_emotion(img,frame,gray):
           result=model.predict(reshaped)
           label=np.argmax(result, axis=1)[0]
           text = labels_dict[label]
-          print(labels_dict[label])
           cv2.rectangle(frame, (x,y), (x+w, y+h), (0,0,255), 1)
           cv2.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),2)
           cv2.rectangle(frame,(x,y-40),(x+w,y),(50,50,255),-1)
