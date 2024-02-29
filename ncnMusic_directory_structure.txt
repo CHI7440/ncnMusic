@@ -1,0 +1,59 @@
+NCNMUSIC
+|
+|->first
+|	|->__pycache__
+|	|->migrations
+|	|->__init__.py
+|	|-->admin.py
+|	|-->apps.py
+|	|-> forms.py
+|	|-->models.py
+|	|-->tests.py
+|	|->urls.py
+|	|->views.py
+|
+|->media
+|	|
+|	|->datasets(data which is used to train model not in use right now)
+|	|-> images(where the image of forms.py will be stored, path specified in models.py)
+|
+|->models
+|	|->__pycache__
+| |->haarcascade_frontalface_default.xml
+|	|->main.py
+|	|-->model_file.h5
+|	|-> spotify.py
+|	|->test.py
+|	|->testdata.py
+|	
+|->ncnMusic
+|	|->__pycache__
+|	|->__init__.py
+|	|-->asgi.py
+|	|-> settings.py
+|	|->urls.py
+|	|->wsgi.py
+|
+|->static
+|	|->ncnMusic
+|	|	|->css
+|	|	|	|->style.css
+|	|	|->js
+|	|	|	|->script.js
+|	|	|->images
+|	|	|	|->favicon.ico
+|
+|
+|->staticfiles(made using collectstatic)
+| |->admin
+| |->ncnMusic
+|
+|->templates
+|	|->index.html
+|	|->second.html
+|
+|->db.sqlite3
+|->manage.py
+|->ncnMusic_directory_structure.txt
+|->Procfile
+|->requirements.txt
