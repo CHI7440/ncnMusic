@@ -1,0 +1,1 @@
+NCN MUSIC is a web application that analyzes facial expressions in images and recommends music based on the detected emotion. Users can upload an image, and the system will determine whether the person in the image is happy, sad, or neutral. Based on the emotion detected, the application recommends a curated playlist from Spotify.
