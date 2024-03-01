@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['ncnmusic-production.up.railway.app','localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://ncnmusic-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://ncnmusic-production.up.railway.app','https://ncnmusic.onrender.com']
 
 # Application definition
 
