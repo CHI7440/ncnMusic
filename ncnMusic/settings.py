@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r-yu(f2dw3o5jkw5!=m&dgi=e6)%txsru#74usatkb=k(m)2hx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ncnmusic-production.up.railway.app','localhost','ncnmusic.onrender.com']
+ALLOWED_HOSTS = ['ncnmusic-production.up.railway.app','127.0.0.1','localhost','localhost:8000','ncnmusic.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://ncnmusic-production.up.railway.app','https://ncnmusic.onrender.com']
 
